@@ -51,4 +51,10 @@ app.post('/stocks', (req, res) => {
 
 app.get("/stocks", (req, res, next) => {
     try {
-        res.
+        res.status(200).json({stock})
+    } catch (error) {
+        res.catch(500).send(error);
+    }
+});
+
+module.exports = app;
