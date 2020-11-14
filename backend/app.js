@@ -17,4 +17,38 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use((req, res, next) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader(
-        "Access-Cont
+        "Access-Control-Allow-Headers",
+        "Origin, X-Requested-With, Content-Type, Accept"
+    );
+    res.setHeader(
+        "Access-Control-Allow-Methods",
+        "GET, POST, PATCH, DELETE, OPTIONS"
+    );
+    next();
+});
+
+app.post('/stocks', (req, res) => {
+
+    try {
+        if (req.body.name === '' || req.body.price === null || req.body.stock === null)
+            return res.status(400).send(`Expected a JSON like: {name:"foo", price: 5, amount: 5}`)
+
+
+        const aux = req.body;
+
+        aux.name = req.body.name;
+        aux.price = req.body.price;
+        aux.stock = req.body.stock;
+        aux.tax = aux.price + (aux.price * 0.21)
+        aux.total_stock_price = aux.tax * aux.stock
+        stock.push(aux)
+
+        res.status(200).send(aux)
+    } catch (error) {
+        res.status(500).send(error)
+    }
+})
+
+app.get("/stocks", (req, res, next) => {
+    try {
+        res.
