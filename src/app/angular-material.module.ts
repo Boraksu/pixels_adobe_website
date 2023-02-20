@@ -25,4 +25,10 @@ import { CdkTableModule } from '@angular/cdk/table';
         MatDividerModule,
         MatPaginatorModule,
         MatSortModule,
-        MatIconMod
+        MatIconModule,
+        CdkTableModule,
+    ]
+})
+
+export class AngularMaterialModule {
+}
