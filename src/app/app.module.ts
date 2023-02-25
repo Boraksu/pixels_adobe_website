@@ -30,4 +30,10 @@ import { ErrorComponent } from './error/error.component';
         AngularMaterialModule,
         StockModule
     ],
-    providers: [{provide: HTTP_INTERCE
+    providers: [{provide: HTTP_INTERCEPTORS, useClass: ServerInterceptor, multi: true}],
+    bootstrap: [AppComponent],
+    entryComponents: [ErrorComponent]
+})
+
+export class AppModule {
+}
