@@ -10,4 +10,27 @@
         </mat-expansion-panel-header>
         <mat-card>
             <form class="stockForm" (submit)="onAddStock(stockForm)" #stockForm="ngForm" style="display: inline-block;" ngNativeValidate ngModelOptions.allowInvalid>
-                <mat-form-field appearance="legac
+                <mat-form-field appearance="legacy">
+                    <mat-label>Product name</mat-label>
+                    <input
+                            matInput
+                            type="text"
+                            name="name"
+                            ngModel
+                            required
+                            minlength="3"
+                            placeholder="Product"
+                            #name="ngModel"
+                    >
+                    <mat-error *ngIf="name.invalid">Please enter a valid name.</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="legacy">
+                    <mat-label>Product price</mat-label>
+                    <input
+                            matInput
+                            type="number"
+                            name="price"
+                            min="0"
+                            ngModel
+                            required
+   
