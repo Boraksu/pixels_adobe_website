@@ -1,0 +1,13 @@
+<mat-accordion>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false"
+    >
+        <span *ngIf="!panelOpenState">{{stockForm.onReset()}}</span>
+        <mat-expansion-panel-header>
+            <mat-panel-description>
+                {{panelOpenState ? 'Add more products' : 'Would you like to add new product?'}}
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <mat-card>
+            <form class="stockForm" (submit)="onAddStock(stockForm)" #stockForm="ngForm" style="display: inline-block;" ngNativeValidate ngModelOptions.allowInvalid>
+                <mat-form-field appearance="legac

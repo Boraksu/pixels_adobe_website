@@ -31,4 +31,11 @@ export class ServerInterceptor implements HttpInterceptor {
                 if (error.error instanceof ErrorEvent) {
                     errorMessage = `Client side error Message: ${error.error.message}`;
                 } else {
-       
+                    errorMessage = `Server side error Message: ${error.message}`;
+                }
+                this.dialog.open(ErrorComponent, {data: {message: errorMessage}});
+                return throwError(errorMessage);
+            })
+        );
+    }
+}
