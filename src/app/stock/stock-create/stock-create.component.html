@@ -33,4 +33,26 @@
                             min="0"
                             ngModel
                             required
-   
+                            placeholder="Price"
+                            #price="ngModel"
+                    >
+                    <mat-error *ngIf="price.invalid">Please enter a valid price.</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="legacy">
+                    <mat-label>Product amount</mat-label>
+                    <input
+                            matInput
+                            type="number"
+                            name="stock"
+                            ngModel
+                            min="0"
+                            required
+                            placeholder="Amount in stock"
+                            #stock="ngModel"
+                    >
+                    <mat-error *ngIf="stock.invalid">Please enter a valid amount.</mat-error>
+                </mat-form-field>
+                <button
+                        mat-raised-button
+                        color="accent"
+                    
