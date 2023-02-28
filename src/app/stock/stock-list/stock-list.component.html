@@ -1,0 +1,38 @@
+
+<mat-table [dataSource]="dataSource" matSort aria-label="Elements">
+    <!-- Product name Definition -->
+    <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Product</mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.name | titlecase}} </mat-cell>
+    </ng-container>
+    <!-- Product price Definition -->
+    <ng-container matColumnDef="price">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Price</mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.price}} </mat-cell>
+    </ng-container>
+
+    <!-- Product tax Definition -->
+    <ng-container matColumnDef="tax">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Price with taxes</mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.tax}} </mat-cell>
+    </ng-container>
+
+    <!-- Product stock Definition -->
+    <ng-container matColumnDef="stock">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Amount in stock</mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.stock}} </mat-cell>
+    </ng-container>
+
+    <!-- Product total stock price Definition -->
+    <ng-container matColumnDef="total_stock_price">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Total price</mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.total_stock_price}} </mat-cell>
+    </ng-container>
+
+    <!-- Header and Row Declarations -->
+    <mat-header-row *matHeaderRowDef="['name', 'price', 'tax','stock','total_stock_price']"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: ['name', 'price', 'tax','stock','total_stock_price']"></mat-row>
+</mat-table>
+<!-- Addition of pagination -->
+<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+
