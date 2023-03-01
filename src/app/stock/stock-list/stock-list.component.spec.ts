@@ -7,4 +7,19 @@ describe('StockListComponent', () => {
   let fixture: ComponentFixture<StockListComponent>;
 
   beforeEach(async(() => {
-    TestBed.configureTestingMod
+    TestBed.configureTestingModule({
+      declarations: [ StockListComponent ]
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(StockListComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
