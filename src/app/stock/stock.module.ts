@@ -9,4 +9,8 @@ import { FormsModule } from '@angular/forms';
     declarations: [StockListComponent, StockCreateComponent],
     imports: [AngularMaterialModule, FormsModule, CommonModule],
     exports: [
-        StockCreat
+        StockCreateComponent,
+        StockListComponent
+    ]
+})
+export class StockModule {}
